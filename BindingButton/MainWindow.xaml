@@ -1,0 +1,24 @@
+﻿<Window x:Class="BindingButton.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BindingButton"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="315" Width="381.5">
+    <Window.DataContext>
+        <local:ViewModel></local:ViewModel>
+    </Window.DataContext>
+    <Grid>
+        <StackPanel Margin="10">
+            <TextBox FontSize="22" Text="{Binding First, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <TextBox FontSize="22" Text="{Binding Second, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <Button  FontSize="22" Command="{Binding PlusBTN, UpdateSourceTrigger=PropertyChanged}">+</Button>
+            <Button  FontSize="22" Command="{Binding MinusBTN, UpdateSourceTrigger=PropertyChanged}">-</Button>
+            <Button  FontSize="22" Command="{Binding MultBTN, UpdateSourceTrigger=PropertyChanged}">*</Button>
+            <Button  FontSize="22" Command="{Binding DecBTN, UpdateSourceTrigger=PropertyChanged}">/</Button>
+            <Button FontSize="22" Command="{Binding SquareBTN, UpdateSourceTrigger=PropertyChanged}" Content="{Binding ButtonContain, UpdateSourceTrigger=PropertyChanged }"></Button>
+            <Label   FontSize="22" Content="{Binding Result, UpdateSourceTrigger=PropertyChanged}"></Label>
+        </StackPanel>
+    </Grid>
+</Window>
