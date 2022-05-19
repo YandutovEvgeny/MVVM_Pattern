@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "WpfApp1\WpfApp1.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingButton", "BindingButton\BindingButton.csproj", "{1D87469F-410C-498E-B677-0DCD5898A498}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TikTakToe", "TikTakToe\TikTakToe.csproj", "{05BDEE36-3949-4FD7-9DF4-AF050743551D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{1D87469F-410C-498E-B677-0DCD5898A498}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D87469F-410C-498E-B677-0DCD5898A498}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D87469F-410C-498E-B677-0DCD5898A498}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05BDEE36-3949-4FD7-9DF4-AF050743551D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05BDEE36-3949-4FD7-9DF4-AF050743551D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05BDEE36-3949-4FD7-9DF4-AF050743551D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05BDEE36-3949-4FD7-9DF4-AF050743551D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
