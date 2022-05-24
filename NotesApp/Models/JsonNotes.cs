@@ -16,7 +16,8 @@ namespace NotesApp
         {
             //Конвертируем список заметок в json-формат и записываем в файл
             string json = JsonConvert.SerializeObject(_notes);
-            FileStream fileStream = new FileStream(filename, FileMode.OpenOrCreate);
+            //Когда сохраняем файл, сохраняем стирая старый файл
+            FileStream fileStream = new FileStream(filename, FileMode.Truncate);
             StreamWriter writer = new StreamWriter(fileStream);
             writer.Write(json);
             writer.Flush();     //Очистка потока
@@ -25,13 +26,7 @@ namespace NotesApp
         }
         public JsonNotes()
         {
-            //Читаем с файла
-            FileStream fileStream = new FileStream("Notes.txt", FileMode.OpenOrCreate);
-            StreamReader streamReader = new StreamReader(fileStream);
-            string json = streamReader.ReadToEnd();
-            _notes = JsonConvert.DeserializeObject <List<Note>>(json);
-            streamReader.Close();
-            fileStream.Close();
+            GetAllNotes();
             /*_notes = new List<Note>()
             {
                 new Note()
@@ -66,6 +61,8 @@ namespace NotesApp
         }
         public void AddNote(Note note)
         {
+            if (_notes == null)
+                _notes = new List<Note>();
             _notes.Add(note);
             SaveFile("Notes.txt");
         }
@@ -91,6 +88,13 @@ namespace NotesApp
 
         public List<Note> GetAllNotes()
         {
+            //Читаем с файла
+            FileStream fileStream = new FileStream("Notes.txt", FileMode.OpenOrCreate);
+            StreamReader streamReader = new StreamReader(fileStream);
+            string json = streamReader.ReadToEnd();
+            _notes = JsonConvert.DeserializeObject<List<Note>>(json);
+            streamReader.Close();
+            fileStream.Close();
             return _notes;
         }
 

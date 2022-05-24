@@ -28,7 +28,11 @@ namespace NotesApp
             {
                 return new ButtonCommand(new Action(()=>
                 {
-                    _note.Id = 1;
+                    if (_notesModel.GetAllNotes().Count >= 1)
+                        _note.Id = _notesModel.GetAllNotes()[_notesModel.GetAllNotes().Count - 1].Id;
+                    else
+                        _note.Id = 0;
+                    _note.Id += 1;
                     _notesModel.AddNote(_note);
                     MessageBox.Show("Добавлено!");
                 }));

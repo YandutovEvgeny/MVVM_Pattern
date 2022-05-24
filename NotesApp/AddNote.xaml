@@ -18,6 +18,6 @@
         <TextBox Text="{Binding AddNote.ImageUri, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         <Label>Выполнить до:</Label>
         <Calendar SelectedDate="{Binding AddNote.DeadLine, UpdateSourceTrigger=PropertyChanged}"></Calendar>
-        <Button Command ="{Binding AddNoteButton, UpdateSourceTrigger=PropertyChanged}" Margin="15">Добавить запись</Button>
+        <Button Command ="{Binding AddNoteButton, UpdateSourceTrigger=PropertyChanged}" Margin="15">Добавить</Button>
     </StackPanel>
 </Window>

@@ -14,7 +14,9 @@
             <RowDefinition Height="15*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <ListBox ItemsSource="{Binding Notes, UpdateSourceTrigger=PropertyChanged}">
+        <ListBox 
+            SelectedItem="{Binding SelectedNote, UpdateSourceTrigger=PropertyChanged}"
+            ItemsSource="{Binding Notes, UpdateSourceTrigger=PropertyChanged}">
             <!--Создаём свой собственный шаблон отображения item в listbox-->
             <ListBox.ItemTemplate> <!--Шаблон item-->
                 <DataTemplate> <!--Расстановка данных (label, TextBox...)-->
@@ -35,6 +37,8 @@
         </ListBox>
         <StackPanel Margin="2" Grid.Row="1" Orientation="Horizontal">
             <Button Command="{Binding NewNote, UpdateSourceTrigger=PropertyChanged}" Padding="3">Добавить запись</Button>
+            <Button Command="{Binding DeleteNote, UpdateSourceTrigger=PropertyChanged}" Padding="3">Удалить запись</Button>
+            <Button Command="{Binding UpdateNote, UpdateSourceTrigger=PropertyChanged}" Padding="3">Изменить запись</Button>
         </StackPanel>
     </Grid>
 </Window>
