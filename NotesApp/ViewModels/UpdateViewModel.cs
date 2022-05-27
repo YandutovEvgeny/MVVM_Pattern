@@ -22,7 +22,7 @@ namespace NotesApp
         Note _first, _second;
         public UpdateViewModel()
         {
-            _model = new JsonNotes();
+            _model = new DataBaseModel();
             _first = _model.GetNote(Id);
             _second = new Note()
             {

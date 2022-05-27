@@ -1,0 +1,19 @@
+﻿<Window x:Class="TelephoneBook.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TelephoneBook"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="216" Width="264.5">
+    <Window.DataContext>
+        <local:ViewModel></local:ViewModel>
+    </Window.DataContext>
+    <StackPanel Margin="30">
+        <Label>Логин:</Label>
+        <TextBox Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <Label>Пароль:</Label>
+        <TextBox Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <Button Command="{Binding EnterButton}" Margin="0,15,0,0">Войти:</Button>
+    </StackPanel>
+</Window>

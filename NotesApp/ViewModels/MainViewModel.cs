@@ -21,7 +21,7 @@ namespace NotesApp
 
         public MainViewModel()
         {
-            notesModel = new JsonNotes();
+            notesModel = new DataBaseModel();
             if (notesModel.GetAllNotes() != null)
                 Notes = new List<Note>(notesModel.GetAllNotes());
             else
@@ -51,7 +51,7 @@ namespace NotesApp
                     {
                         //Результат нажатия на кнопки присваивается в result
                         MessageBoxResult result = MessageBox.Show("Действительно удалить запись?",
-                            "Удаление записи" + _note.Header,
+                            "Удаление записи " + _note.Header,
                              MessageBoxButton.YesNo);
                         if (result == MessageBoxResult.Yes)
                             notesModel.DeleteNote(_note);

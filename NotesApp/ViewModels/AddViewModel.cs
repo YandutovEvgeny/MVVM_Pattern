@@ -18,7 +18,7 @@ namespace NotesApp
 
         public AddViewModel()
         {
-            _notesModel = new JsonNotes();
+            _notesModel = new DataBaseModel();
             _note = new Note();
         }
 
