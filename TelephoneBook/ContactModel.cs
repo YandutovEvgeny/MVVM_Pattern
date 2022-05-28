@@ -12,30 +12,25 @@ namespace TelephoneBook
 {
     class ContactModel
     {
-        Contact contact;
-        //TODO GET ADD
-        public ContactModel()
+        public Contact GetContact(string login, string password)
         {
-            contact = new Contact();
-        }
-        public void GetContact(string login, string password)
-        {
+            Contact contact = new Contact();
             string connectString = "Server=localhost;Database=testdb;Uid=root;Pwd=root";
             MySqlConnection mySqlConnection = new MySqlConnection(connectString);
             mySqlConnection.Open();
-            string query = $"SELECT * FROM users WHERE login = '{contact.Login}' AND pass = '{contact.Password}'";
+            string query = $"SELECT * FROM users WHERE login = '{login}' AND pass = '{password}'";
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, mySqlConnection);
             DataTable table = new DataTable();
             adapter.Fill(table);
             if(table.Rows.Count > 0)
             {
-                MessageBox.Show("У вас есть доступ на страницу");
-            }
-            else
-            {
-                MessageBox.Show("Нет такой записи");
+                contact.Id = (int)table.Rows[0].ItemArray[0];
+                contact.Login = table.Rows[0].ItemArray[1].ToString();
+                contact.Password = table.Rows[0].ItemArray[2].ToString();
+                contact.Date = table.Rows[0].ItemArray[3].ToString(); 
             }
             mySqlConnection.Close();
+            return contact;
         }
     }
 }

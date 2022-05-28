@@ -1,9 +1,12 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace TelephoneBook
@@ -12,8 +15,8 @@ namespace TelephoneBook
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        ContactModel contactModel;
         Contact contact;
+        ContactModel model;
 
         void Notify(string name)
         {
@@ -22,8 +25,8 @@ namespace TelephoneBook
 
         public ViewModel()
         {
-            contactModel = new ContactModel();
             contact = new Contact();
+            model = new ContactModel();
         }
         public ICommand EnterButton
         {
@@ -31,7 +34,11 @@ namespace TelephoneBook
             {
                 return new ButtonCommand(new Action(() =>
                 {
-                    contactModel.GetContact(Login, Password);
+                    Contact contact1 = model.GetContact(Login, Password);
+                    if (contact1.Login == Login && contact1.Password == Password)
+                        MessageBox.Show("Данные получены, обрабатывается получение данных...");
+                    else
+                        MessageBox.Show("Нет такой записи");
                 }));
             }
         }
