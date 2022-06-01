@@ -101,7 +101,15 @@
     <Compile Include="ButtonCommand.cs" />
     <Compile Include="Contact.cs" />
     <Compile Include="ContactModel.cs" />
+    <Compile Include="ContactsWindow.xaml.cs">
+      <DependentUpon>ContactsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Record.cs" />
     <Compile Include="ViewModel.cs" />
+    <Page Include="ContactsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

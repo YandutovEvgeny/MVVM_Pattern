@@ -36,13 +36,15 @@ namespace TelephoneBook
                 {
                     Contact contact1 = model.GetContact(Login, Password);
                     if (contact1.Login == Login && contact1.Password == Password)
-                        MessageBox.Show("Данные получены, обрабатывается получение данных...");
+                    {
+                        ContactsWindow contactsWindow = new ContactsWindow();
+                        contactsWindow.ShowDialog();
+                    }
                     else
-                        MessageBox.Show("Нет такой записи");
+                        MessageBox.Show("Неверный логин или пароль");
                 }));
             }
         }
-
         public string Login
         {
             get { return contact.Login; }
