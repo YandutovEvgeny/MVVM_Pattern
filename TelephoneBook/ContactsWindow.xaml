@@ -5,8 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TelephoneBook"
         mc:Ignorable="d"
-        Title="ContactsWindow" Height="450" Width="800">
+        Title="ContactsWindow" Height="435" Width="800">
+    <Window.DataContext>
+        <local:RecordsViewModel></local:RecordsViewModel>
+    </Window.DataContext>
     <Grid>
-        
+        <ListBox 
+            ItemsSource="{Binding Records, UpdateSourceTrigger=PropertyChanged}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="{Binding ImageUri, UpdateSourceTrigger=PropertyChanged}" Height="100" Width="100"></Image>
+                        <StackPanel Grid.Column="1">
+                            <Label Content="{Binding Name, UpdateSourceTrigger=PropertyChanged}" FontSize="20"></Label>
+                            <Label Content="{Binding Phone, UpdateSourceTrigger=PropertyChanged}" FontSize="13"></Label>
+                            <Label Content="{Binding BDay, UpdateSourceTrigger=PropertyChanged}"></Label>
+                            <Label Content="{Binding Note, UpdateSourceTrigger=PropertyChanged}"></Label>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>

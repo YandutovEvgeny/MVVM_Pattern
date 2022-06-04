@@ -105,6 +105,8 @@
       <DependentUpon>ContactsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Record.cs" />
+    <Compile Include="RecordModel.cs" />
+    <Compile Include="RecordsViewModel.cs" />
     <Compile Include="ViewModel.cs" />
     <Page Include="ContactsWindow.xaml">
       <SubType>Designer</SubType>
