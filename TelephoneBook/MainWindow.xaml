@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TelephoneBook"
         mc:Ignorable="d"
-        Title="MainWindow" Height="216" Width="264.5">
+        Title="Окно авторизации" Height="216" Width="264.5">
     <Window.DataContext>
         <local:ViewModel></local:ViewModel>
     </Window.DataContext>
-    <StackPanel Margin="30">
+    <StackPanel Margin="25">
         <Label>Логин:</Label>
         <TextBox Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         <Label>Пароль:</Label>

@@ -5,30 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TelephoneBook"
         mc:Ignorable="d"
-        Title="ContactsWindow" Height="435" Width="800">
+        Title="Телефонная книга" Height="435" Width="800">
     <Window.DataContext>
         <local:RecordsViewModel></local:RecordsViewModel>
     </Window.DataContext>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
         <ListBox 
-            ItemsSource="{Binding Records, UpdateSourceTrigger=PropertyChanged}">
+            SelectedItem="{Binding SelectedRecord, UpdateSourceTrigger=PropertyChanged}"
+            ItemsSource="{Binding Names, UpdateSourceTrigger=PropertyChanged}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Image Source="{Binding ImageUri, UpdateSourceTrigger=PropertyChanged}" Height="100" Width="100"></Image>
-                        <StackPanel Grid.Column="1">
-                            <Label Content="{Binding Name, UpdateSourceTrigger=PropertyChanged}" FontSize="20"></Label>
-                            <Label Content="{Binding Phone, UpdateSourceTrigger=PropertyChanged}" FontSize="13"></Label>
-                            <Label Content="{Binding BDay, UpdateSourceTrigger=PropertyChanged}"></Label>
-                            <Label Content="{Binding Note, UpdateSourceTrigger=PropertyChanged}"></Label>
-                        </StackPanel>
-                    </Grid>
+                    <Label Content="{Binding Name, UpdateSourceTrigger=PropertyChanged}" FontSize="20" FontWeight="Medium" ></Label>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Image Source="{Binding SelectedRecord.ImageUri, UpdateSourceTrigger=PropertyChanged}" Height="200" Stretch="Fill"></Image>
+            <StackPanel Grid.Column="1">
+                <Label Content="{Binding SelectedRecord.Name, UpdateSourceTrigger=PropertyChanged}" FontSize="30"></Label>
+                <Label Content="{Binding SelectedRecord.Phone, UpdateSourceTrigger=PropertyChanged}" FontSize="20"></Label>
+                <Label Content="{Binding SelectedRecord.BDay, UpdateSourceTrigger=PropertyChanged}" FontSize="15"></Label>
+            </StackPanel>
+            <Label Content="{Binding SelectedRecord.Note, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" FontSize="15"></Label>
+        </Grid>
     </Grid>
 </Window>

@@ -16,25 +16,39 @@ namespace TelephoneBook
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
-        List<Record> records;
+        List<Record> names;
+        Record record;
         RecordModel recordModel;
 
         public RecordsViewModel()
         {
+            record = new Record();
             recordModel = new RecordModel();
             if (recordModel.GetRecords() != null)
-                records = new List<Record>(recordModel.GetRecords());
+            {
+                names = new List<Record>(recordModel.GetRecords());
+            }
             else
-                records = new List<Record>();
+            {
+                names = new List<Record>();
+            }
         }
-
-        public List<Record> Records
+        public List<Record> Names
         {
-            get { return records; }
+            get { return names; }
             set
             {
-                records = value;
-                Notify("Records");
+                names = value;
+                Notify("Names");
+            }
+        }
+        public Record SelectedRecord
+        {
+            get { return record; }
+            set
+            {
+                record = value;
+                Notify("SelectedRecord");
             }
         }
     }
