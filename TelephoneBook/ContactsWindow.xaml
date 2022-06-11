@@ -12,8 +12,12 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="2.5*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
         <ListBox 
             SelectedItem="{Binding SelectedRecord, UpdateSourceTrigger=PropertyChanged}"
             ItemsSource="{Binding Names, UpdateSourceTrigger=PropertyChanged}">
@@ -23,6 +27,16 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Command="{Binding AddRecord, UpdateSourceTrigger=PropertyChanged}">Add</Button>
+            <Button Command="{Binding DeleteRecord, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1">Delete</Button>
+            <Button Command="{Binding UpdateRecord, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2">Edit</Button>
+        </Grid>
         <Grid Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>

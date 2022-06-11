@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
 
 namespace TelephoneBook
 {
@@ -18,15 +20,15 @@ namespace TelephoneBook
 
         List<Record> names;
         Record record;
-        RecordModel recordModel;
+        IRecordsModel baseModel;
 
         public RecordsViewModel()
         {
             record = new Record();
-            recordModel = new RecordModel();
-            if (recordModel.GetRecords() != null)
+            baseModel = new DataBaseModel();
+            if (baseModel.GetAllRecords() != null)
             {
-                names = new List<Record>(recordModel.GetRecords());
+                names = new List<Record>(baseModel.GetAllRecords());
             }
             else
             {
@@ -49,6 +51,52 @@ namespace TelephoneBook
             {
                 record = value;
                 Notify("SelectedRecord");
+            }
+        }
+        public ICommand AddRecord
+        {
+            get 
+            {
+                return new ButtonCommand(new Action(() =>
+                {
+                    AddRecord addRecord = new AddRecord();
+                    addRecord.ShowDialog();
+                    Names = new List<Record>(baseModel.GetAllRecords());
+                }));
+            }
+        }
+        public ICommand DeleteRecord
+        {
+            get
+            {
+                return new ButtonCommand(new Action(() =>
+                {
+                    if(record != null)
+                    {
+                        MessageBoxResult result = MessageBox.Show("Вы действительно хотите удалить контакт?",
+                            "Удаление контакта " + record.Name, MessageBoxButton.YesNo);
+                        if (result == MessageBoxResult.Yes)
+                            baseModel.DeleteRecord(record);
+                        Names = new List<Record>(baseModel.GetAllRecords());
+                    }
+                }));
+            }
+        }
+        public ICommand UpdateRecord
+        {
+            get
+            {
+                return new ButtonCommand(new Action(() =>
+                {
+                    if (record != null)
+                    {
+                        //UpdateViewModel.Id = record.Id;
+                        UpdateRecord updateRecord = new UpdateRecord();
+                        updateRecord.ShowDialog();
+                        Names = new List<Record>(baseModel.GetAllRecords());
+                    }
+
+                }));
             }
         }
     }
