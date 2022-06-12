@@ -5,8 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TelephoneBook"
         mc:Ignorable="d"
-        Title="AddRecord" Height="450" Width="800">
+        Title="Окно добавления контакта" Height="348" Width="249.5" Icon="">
+    <Window.DataContext>
+        <local:AddViewModel></local:AddViewModel>
+    </Window.DataContext>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Margin="10">
+            <Label>Имя:</Label>
+            <TextBox Text="{Binding AddRecord.Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <Label>Телефон:</Label>
+            <TextBox Text="{Binding AddRecord.Phone, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <Label>Дата рождения:</Label>
+            <TextBox Text="{Binding AddRecord.BDay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <Label>Ссылка на изображение:</Label>
+            <TextBox Text="{Binding AddRecord.ImageUri, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <Label>Заметка:</Label>
+            <TextBox Text="{Binding AddRecord.Note, UpdateSourceTrigger=PropertyChanged}" Height="48"></TextBox>
+        </StackPanel>
+        <Button Command="{Binding AddRecordButton, UpdateSourceTrigger=PropertyChanged}" Margin="50,5,50,5" Grid.Row="1">Добавить контакт</Button>
     </Grid>
 </Window>

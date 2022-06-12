@@ -13,7 +13,7 @@
         <Label>Заголовок:</Label>
         <TextBox Text="{Binding AddNote.Header, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         <Label>Текст:</Label>
-        <TextBox Text="{Binding AddNote.Text, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
+        <TextBox Text="{Binding AddNote.Text, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         <Label>Ссылка на изображение:</Label>
         <TextBox Text="{Binding AddNote.ImageUri, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         <Label>Выполнить до:</Label>
