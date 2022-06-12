@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TelephoneBook"
         mc:Ignorable="d"
-        Title="Окно добавления контакта" Height="348" Width="249.5" Icon="">
+        Title="Окно добавления контакта" Height="348" Width="249.5">
     <Window.DataContext>
         <local:AddViewModel></local:AddViewModel>
     </Window.DataContext>

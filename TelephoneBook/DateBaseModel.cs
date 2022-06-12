@@ -82,9 +82,8 @@ namespace TelephoneBook
 
         public void UpdateRecord(Record record, Record result)
         {
-            string query = $"UPDATE contacts SET name='{result.Name}', phone='{result.Phone}'," +
-                $"birthday='{result.BDay}', image='{result.ImageUri}', note='{result.Note}' WHERE" +
-                $"id={record.Id}";
+            string query = $"UPDATE contacts SET name='{result.Name}', phone='{result.Phone}', " +
+                $"birthday='{result.BDay}', image='{result.ImageUri}', note='{result.Note}' WHERE id={record.Id}";
             ExecuteCommand(query);
         }
     }

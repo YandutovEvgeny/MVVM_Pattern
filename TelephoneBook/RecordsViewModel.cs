@@ -90,7 +90,7 @@ namespace TelephoneBook
                 {
                     if (record != null)
                     {
-                        //UpdateViewModel.Id = record.Id;
+                        UpdateViewModel.Id = record.Id;
                         UpdateRecord updateRecord = new UpdateRecord();
                         updateRecord.ShowDialog();
                         Names = new List<Record>(baseModel.GetAllRecords());

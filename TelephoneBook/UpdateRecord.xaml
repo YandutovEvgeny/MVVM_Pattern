@@ -5,8 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TelephoneBook"
         mc:Ignorable="d"
-        Title="UpdateRecord" Height="450" Width="800">
+        Title="Окно изменения контакта" Height="348" Width="249.5">
+    <Window.DataContext>
+        <local:UpdateViewModel></local:UpdateViewModel>
+    </Window.DataContext>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Margin="10">
+            <Label>Имя:</Label>
+            <TextBox Text="{Binding UpdateRecord.Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <Label>Телефон:</Label>
+            <TextBox Text="{Binding UpdateRecord.Phone, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <Label>Дата рождения:</Label>
+            <TextBox Text="{Binding UpdateRecord.BDay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <Label>Ссылка на изображение:</Label>
+            <TextBox Text="{Binding UpdateRecord.ImageUri, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <Label>Заметка:</Label>
+            <TextBox Text="{Binding UpdateRecord.Note, UpdateSourceTrigger=PropertyChanged}" Height="48"></TextBox>
+        </StackPanel>
+        <Button Command="{Binding UpdateRecordButton, UpdateSourceTrigger=PropertyChanged}" Margin="50,5,50,5" Grid.Row="1">Изменить контакт</Button>
     </Grid>
 </Window>
