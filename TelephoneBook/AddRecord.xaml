@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TelephoneBook"
         mc:Ignorable="d"
-        Title="Окно добавления контакта" Height="348" Width="249.5">
+        Title="Окно добавления контакта" Height="513" Width="249.5">
     <Window.DataContext>
         <local:AddViewModel></local:AddViewModel>
     </Window.DataContext>
@@ -20,7 +20,7 @@
             <Label>Телефон:</Label>
             <TextBox Text="{Binding AddRecord.Phone, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             <Label>Дата рождения:</Label>
-            <TextBox Text="{Binding AddRecord.BDay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+            <Calendar SelectedDate="{Binding AddRecord.BDay, UpdateSourceTrigger=PropertyChanged}"></Calendar>
             <Label>Ссылка на изображение:</Label>
             <TextBox Text="{Binding AddRecord.ImageUri, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             <Label>Заметка:</Label>

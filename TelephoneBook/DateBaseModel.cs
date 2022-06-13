@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TelephoneBook
 {
@@ -29,7 +26,7 @@ namespace TelephoneBook
         public void AddRecord(Record record)
         {
             string query = "INSERT INTO contacts (name, phone, birthday, image, note)"
-                + $"VALUES ('{record.Name}', '{record.Phone}', '{record.BDay}', '{record.ImageUri}'," +
+                + $"VALUES ('{record.Name}', '{record.Phone}', '{record.BDay:yyyy-MM-dd}', '{record.ImageUri}'," +
                 $"'{record.Note}')";
             ExecuteCommand(query);
         }
@@ -53,7 +50,7 @@ namespace TelephoneBook
                     Id = (int)table.Rows[i].ItemArray[0],
                     Name = table.Rows[i].ItemArray[1].ToString(),
                     Phone = table.Rows[i].ItemArray[2].ToString(),
-                    BDay = table.Rows[i].ItemArray[3].ToString(),
+                    BDay = DateTime.Parse(table.Rows[i].ItemArray[3].ToString()),
                     ImageUri = table.Rows[i].ItemArray[4].ToString(),
                     Note = table.Rows[i].ItemArray[5].ToString()
                 });
@@ -73,7 +70,7 @@ namespace TelephoneBook
                 record.Id = (int)table.Rows[0].ItemArray[0];
                 record.Name = table.Rows[0].ItemArray[1].ToString();
                 record.Phone = table.Rows[0].ItemArray[2].ToString();
-                record.BDay = table.Rows[0].ItemArray[3].ToString();
+                record.BDay = DateTime.Parse(table.Rows[0].ItemArray[3].ToString());
                 record.ImageUri = table.Rows[0].ItemArray[4].ToString();
                 record.Note = table.Rows[0].ItemArray[5].ToString();
             }
@@ -83,7 +80,7 @@ namespace TelephoneBook
         public void UpdateRecord(Record record, Record result)
         {
             string query = $"UPDATE contacts SET name='{result.Name}', phone='{result.Phone}', " +
-                $"birthday='{result.BDay}', image='{result.ImageUri}', note='{result.Note}' WHERE id={record.Id}";
+                $"birthday='{result.BDay:yyyy-MM-dd}', image='{result.ImageUri}', note='{result.Note}' WHERE id={record.Id}";
             ExecuteCommand(query);
         }
     }
