@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TelephoneBook"
         mc:Ignorable="d"
-        Title="Окно изменения контакта" Height="510" Width="249.5">
+        Title="Окно изменения контакта" Height="510" Width="249.5"
+        Icon="Icons/UpdateRecord.ico">
     <Window.DataContext>
         <local:UpdateViewModel></local:UpdateViewModel>
     </Window.DataContext>

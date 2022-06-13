@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TelephoneBook"
         mc:Ignorable="d"
-        Title="Телефонная книга" Height="435" Width="800">
+        Title="Телефонная книга" Height="435" Width="800"
+        Icon="Icons/TelephoneBook.ico">
     <Window.DataContext>
         <local:RecordsViewModel></local:RecordsViewModel>
     </Window.DataContext>

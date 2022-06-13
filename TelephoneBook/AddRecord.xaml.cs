@@ -22,6 +22,10 @@ namespace TelephoneBook
         public AddRecord()
         {
             InitializeComponent();
+            AddViewModel addViewModel = new AddViewModel();
+            DataContext = addViewModel;
+            if (addViewModel.CloseAction == null)
+                addViewModel.CloseAction = new Action(Close);
         }
     }
 }

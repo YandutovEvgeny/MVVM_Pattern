@@ -23,6 +23,10 @@ namespace TelephoneBook
         public MainWindow()
         {
             InitializeComponent();
+            ViewModel viewModel = new ViewModel();
+            DataContext = viewModel;
+            if (viewModel.CloseAction == null)
+                viewModel.CloseAction = new Action(Close);
         }
     }
 }

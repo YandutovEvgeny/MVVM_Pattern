@@ -21,6 +21,7 @@ namespace TelephoneBook
         public static int Id;
         DataBaseModel baseModel;
         Record firstRecord, secondRecord;
+        public Action CloseAction { get; set; }
 
         public UpdateViewModel()
         {
@@ -54,6 +55,7 @@ namespace TelephoneBook
                 {
                     baseModel.UpdateRecord(firstRecord, secondRecord);
                     MessageBox.Show("Изменено!");
+                    CloseAction();
                 }));
             }
         }

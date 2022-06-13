@@ -113,16 +113,6 @@
     <Compile Include="IRecordsModel.cs" />
     <Compile Include="Record.cs" />
     <Compile Include="RecordsViewModel.cs" />
-    <Compile Include="Resource.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resource.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="UpdateRecord.xaml.cs">
       <DependentUpon>UpdateRecord.xaml</DependentUpon>
     </Compile>
@@ -171,14 +161,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resource.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -189,13 +171,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\TelephoneBook.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\UpdateRecord.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\AddRecord.ico" />
+    <Resource Include="Icons\AddRecord.ico" />
+    <Resource Include="Icons\TelephoneBook.ico" />
+    <Resource Include="Icons\UpdateRecord.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -20,6 +20,7 @@ namespace TelephoneBook
 
         DataBaseModel recordModel;
         Record record;
+        public Action CloseAction { get; set; }
 
         public AddViewModel()
         {
@@ -40,6 +41,7 @@ namespace TelephoneBook
                     record.Id += 1;
                     recordModel.AddRecord(record);
                     MessageBox.Show("Контакт добавлен!");
+                    CloseAction();
                 }));
             }
         }
