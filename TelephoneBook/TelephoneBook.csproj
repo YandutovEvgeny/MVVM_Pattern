@@ -99,34 +99,34 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddRecord.xaml.cs">
+    <Compile Include="Views\AddRecord.xaml.cs">
       <DependentUpon>AddRecord.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddViewModel.cs" />
-    <Compile Include="ButtonCommand.cs" />
-    <Compile Include="Contact.cs" />
-    <Compile Include="ContactModel.cs" />
-    <Compile Include="ContactsWindow.xaml.cs">
+    <Compile Include="ViewModels\AddViewModel.cs" />
+    <Compile Include="Models\ButtonCommand.cs" />
+    <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\ContactModel.cs" />
+    <Compile Include="Views\ContactsWindow.xaml.cs">
       <DependentUpon>ContactsWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DateBaseModel.cs" />
-    <Compile Include="IRecordsModel.cs" />
-    <Compile Include="Record.cs" />
-    <Compile Include="RecordsViewModel.cs" />
-    <Compile Include="UpdateRecord.xaml.cs">
+    <Compile Include="Models\DateBaseModel.cs" />
+    <Compile Include="Models\IRecordsModel.cs" />
+    <Compile Include="Models\Record.cs" />
+    <Compile Include="ViewModels\RecordsViewModel.cs" />
+    <Compile Include="Views\UpdateRecord.xaml.cs">
       <DependentUpon>UpdateRecord.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UpdateViewModel.cs" />
-    <Compile Include="ViewModel.cs" />
-    <Page Include="AddRecord.xaml">
+    <Compile Include="ViewModels\UpdateViewModel.cs" />
+    <Compile Include="ViewModels\ViewModel.cs" />
+    <Page Include="Views\AddRecord.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ContactsWindow.xaml">
+    <Page Include="Views\ContactsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -134,11 +134,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="UpdateRecord.xaml">
+    <Page Include="Views\UpdateRecord.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -175,5 +175,6 @@
     <Resource Include="Icons\TelephoneBook.ico" />
     <Resource Include="Icons\UpdateRecord.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

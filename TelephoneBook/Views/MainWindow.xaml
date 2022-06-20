@@ -1,4 +1,4 @@
-﻿<Window x:Class="TelephoneBook.MainWindow"
+﻿<Window x:Class="TelephoneBook.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TelephoneBook"
         mc:Ignorable="d"
         Title="Окно авторизации" Height="216" Width="264.5"
-        Icon="Icons/TelephoneBook.ico">
+        Icon="pack://application:,,,/Icons/TelephoneBook.ico">
     <Window.DataContext>
         <local:ViewModel></local:ViewModel>
     </Window.DataContext>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
+using TelephoneBook.Views;
 
 namespace TelephoneBook
 {
@@ -43,7 +44,13 @@ namespace TelephoneBook
         }
         public Record SelectedRecord
         {
-            get { return record; }
+            /*get { return record; }*/
+            get
+            {
+                if (record.Name == null)
+                    return names[0];
+                return record;
+            }
             set
             {
                 record = value;
