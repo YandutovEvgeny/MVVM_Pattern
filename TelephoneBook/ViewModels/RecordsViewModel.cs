@@ -44,16 +44,18 @@ namespace TelephoneBook
         }
         public Record SelectedRecord
         {
-            /*get { return record; }*/
             get
             {
-                if (record.Name == null)
-                    return names[0];
+                if(record.Name is null) return names[0];
                 return record;
             }
             set
             {
                 record = value;
+                if(value == null)
+                {
+                    record = new Record();
+                }
                 Notify("SelectedRecord");
             }
         }
