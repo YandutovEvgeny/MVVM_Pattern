@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:TelephoneBook"
         mc:Ignorable="d"
         Title="Телефонная книга" Height="435" Width="800"
-        Icon="pack://application:,,,/Icons/telephoneBook.ico">
+        Icon="pack://application:,,,/Icons/telephoneBook.ico"
+        Background="Gainsboro">
     <Window.DataContext>
         <local:RecordsViewModel></local:RecordsViewModel>
     </Window.DataContext>
@@ -19,7 +20,7 @@
             <RowDefinition Height="10*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <ListBox 
+        <ListBox Background="White" Margin="5,5,5,5"
             SelectedItem="{Binding SelectedRecord, UpdateSourceTrigger=PropertyChanged}"
             ItemsSource="{Binding Names, UpdateSourceTrigger=PropertyChanged}">
             <ListBox.ItemTemplate>
@@ -34,9 +35,9 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Command="{Binding AddRecord, UpdateSourceTrigger=PropertyChanged}">Add</Button>
-            <Button Command="{Binding DeleteRecord, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1">Delete</Button>
-            <Button Command="{Binding UpdateRecord, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2">Edit</Button>
+            <Button Command="{Binding AddRecord, UpdateSourceTrigger=PropertyChanged}" Margin="5" Background="White">Add</Button>
+            <Button Command="{Binding DeleteRecord, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Margin="5" Background="White">Delete</Button>
+            <Button Command="{Binding UpdateRecord, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Margin="5" Background="White">Edit</Button>
         </Grid>
         <Grid Grid.Column="1">
             <Grid.ColumnDefinitions>
@@ -47,13 +48,13 @@
                 <RowDefinition Height="1.25*"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <Image Source="{Binding SelectedRecord.ImageUri, UpdateSourceTrigger=PropertyChanged}" Height="200" Stretch="Fill"></Image>
-            <StackPanel Grid.Column="1">
-                <Label Content="{Binding SelectedRecord.Name, UpdateSourceTrigger=PropertyChanged}" FontSize="30"></Label>
-                <Label Content="{Binding SelectedRecord.Phone, UpdateSourceTrigger=PropertyChanged}" FontSize="20"></Label>
-                <Label Content="{Binding SelectedRecord.BDay, UpdateSourceTrigger=PropertyChanged}" FontSize="15"></Label>
+            <Image Source="{Binding SelectedRecord.ImageUri, UpdateSourceTrigger=PropertyChanged}" Height="200" Stretch="Fill" Margin="5"></Image>
+            <StackPanel Grid.Column="1" Margin="5,5,5,5" Background="White">
+                <Label Content="{Binding SelectedRecord.Name, UpdateSourceTrigger=PropertyChanged}" FontSize="30" Height="60" Margin="5,5,5,5"></Label>
+                <Label Content="{Binding SelectedRecord.Phone, UpdateSourceTrigger=PropertyChanged}" FontSize="25" Height="60" Margin="5,5,5,5"></Label>
+                <Label Content="{Binding SelectedRecord.BDay, UpdateSourceTrigger=PropertyChanged}" FontSize="15" Height="60" Margin="5,5,5,5"></Label>
             </StackPanel>
-            <TextBox Text="{Binding SelectedRecord.Note, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" FontSize="15" TextWrapping="Wrap"></TextBox>
+            <TextBox Text="{Binding SelectedRecord.Note, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" FontSize="20" TextWrapping="Wrap" Background="White" Margin="5,5,5,-30" ></TextBox>
         </Grid>
     </Grid>
 </Window>

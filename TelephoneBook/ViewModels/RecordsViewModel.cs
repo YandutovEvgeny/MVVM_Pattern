@@ -77,13 +77,17 @@ namespace TelephoneBook
             {
                 return new ButtonCommand(new Action(() =>
                 {
-                    if(record != null)
+                    if(record.Name != null)
                     {
                         MessageBoxResult result = MessageBox.Show("Вы действительно хотите удалить контакт?",
                             "Удаление контакта " + record.Name, MessageBoxButton.YesNo);
                         if (result == MessageBoxResult.Yes)
                             baseModel.DeleteRecord(record);
                         Names = new List<Record>(baseModel.GetAllRecords());
+                    }
+                    else
+                    {
+                        MessageBox.Show("Необходимо выделить контакт!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }));
             }

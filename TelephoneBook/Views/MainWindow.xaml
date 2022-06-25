@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TelephoneBook"
         mc:Ignorable="d"
-        Title="Окно авторизации" Height="216" Width="264.5"
-        Icon="pack://application:,,,/Icons/TelephoneBook.ico">
+        ResizeMode="NoResize"
+        Title="Окно авторизации" Height="214" Width="264.5"
+        Icon="pack://application:,,,/Icons/TelephoneBook.ico"
+        Background="Gainsboro">
     <Window.DataContext>
         <local:ViewModel></local:ViewModel>
     </Window.DataContext>
@@ -15,6 +17,6 @@
         <TextBox Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         <Label>Пароль:</Label>
         <TextBox Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-        <Button Command="{Binding EnterButton}" Margin="0,15,0,0">Войти:</Button>
+        <Button Command="{Binding EnterButton}" Margin="50,10,50,0" Background="White">Войти:</Button>
     </StackPanel>
 </Window>

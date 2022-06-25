@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TelephoneBook"
         mc:Ignorable="d"
+        ResizeMode="NoResize"
         Title="Окно добавления контакта" Height="513" Width="249.5"
-        Icon="pack://application:,,,/Icons/AddRecord.ico">
+        Icon="pack://application:,,,/Icons/AddRecord.ico"
+        Background="Gainsboro">
     <Window.DataContext>
         <local:AddViewModel></local:AddViewModel>
     </Window.DataContext>
@@ -27,6 +29,6 @@
             <Label>Заметка:</Label>
             <TextBox Text="{Binding AddRecord.Note, UpdateSourceTrigger=PropertyChanged}" Height="48"></TextBox>
         </StackPanel>
-        <Button Command="{Binding AddRecordButton, UpdateSourceTrigger=PropertyChanged}" Margin="50,5,50,5" Grid.Row="1">Добавить контакт</Button>
+        <Button Command="{Binding AddRecordButton, UpdateSourceTrigger=PropertyChanged}" Margin="60,15,60,15" Grid.Row="1" Background="White">Добавить контакт</Button>
     </Grid>
 </Window>

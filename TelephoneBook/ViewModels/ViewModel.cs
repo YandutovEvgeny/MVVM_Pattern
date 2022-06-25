@@ -37,7 +37,7 @@ namespace TelephoneBook
                 return new ButtonCommand(new Action(() =>
                 {
                     Contact contact1 = model.GetContact(Login, Password);
-                    if (contact1.Login == Login && contact1.Password == Password)
+                    if (contact1.Login == Login && contact1.Password == Password && Login != null && Password != null)
                     {
                         Application.Current.MainWindow.Visibility = Visibility.Hidden;
                         ContactsWindow contactsWindow = new ContactsWindow();
